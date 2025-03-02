@@ -3,7 +3,7 @@ import Bottle from '../assets/bottle.png';
 
 function About() {
     return (
-        <div className="w-[1000px] max-width-[90%] flex flex-col gap-10 m-15 mx-auto">
+        <div className="w-[1000px] max-width-[90%] flex flex-col gap-7 m-15 mx-auto">
             <h2 className="text-center text-3xl">What is</h2>
             <h1 className="text-center text-5xl">Message in a Bottle?</h1>
             <p className="text-base">Life can feel like an endless ocean—sometimes calm, sometimes stormy, and often overwhelming. Message in a Bottle is a place to send your unspoken words out to sea, knowing that someone, somewhere, might find them and understand.</p>
