@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { IoClose } from "react-icons/io5";
 import feather from '../assets/feather.png';
 import Navbar from "../components/Navbar";
+import MessageSent from '../components/MessageSent';
 
 function Submit() {
     const [tags, setTags] = useState([]);
@@ -10,6 +11,7 @@ function Submit() {
     const [title, setTitle] = useState('');
     const [color, setColor] = useState('');
     const [error, setError] = useState('');
+    const [animation, setAnimation] = useState(false);
 
     const handleTagInputChange = (e) => {
         setTagInput(e.target.value);
@@ -94,6 +96,7 @@ function Submit() {
                 setTags([]);
                 setTitle('');
                 setColor('');
+                setAnimation(true);
             } else {
                 console.error('Failed to submit story');
             }
@@ -102,11 +105,21 @@ function Submit() {
         }
     };
 
+    // UseEffect to reset animation after a few seconds
+    useEffect(() => {
+        if (animation) {
+            const timer = setTimeout(() => {
+                setAnimation(false);
+            }, 2000); // Set animation back to false after 5 seconds
+
+            return () => clearTimeout(timer); // Cleanup the timer on unmount or change
+        }
+    }, [animation]); // Run effect when `animation` changes
+
     return (
         <>
             <Navbar page="submit" />
             <div className='w-full h-screen max-w-9/10 justify-center m-auto p-6'>
-                {/* <h1 className='text-center text-xl pb-4'>Message in a Bottle</h1> */}
                 <form className='h-full w-full' id="submitForm" onSubmit={handleSubmit}>
                     <div className="grid grid-cols-5 gap-8 h-full w-full">
                         <img className='col-start-1 h-8/10 w-full' src={feather} />
@@ -229,6 +242,8 @@ function Submit() {
 
                 </form>
             </div>
+
+            {animation && ( <MessageSent/> )}
         </>
     );
 }
