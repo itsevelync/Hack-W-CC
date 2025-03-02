@@ -6,7 +6,7 @@ function Notice({onClose, isVisible}) {
     if (!isVisible) return null;
 
     return (
-        <div className="fixed inset-0 flex justify-center items-center">
+        <div className="fixed z-[100] inset-0 flex justify-center items-center">
             <div onClick={onClose} className="absolute top-0 left-0 w-full h-full bg-[#000000] opacity-50 cursor-pointer">
             </div>
             <div className="z-99 relative w-[700px] h-[400px] bg-m-tan border-2 border-m-brown rounded-lg flex flex-col gap-2 py-15 px-10 pt-20 m-auto">

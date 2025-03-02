@@ -3,7 +3,6 @@ import storiesData from '../data/stories.json';
 import Wave from '../assets/wave.svg';
 import TagLeft from '../assets/tag-left.svg';
 import TagRight from '../assets/tag-right.svg';
-import Resources from '../assets/resources.svg';
 import { FaFilter } from "react-icons/fa";
 import Navbar from "../components/Navbar";
 import Bottle2 from '../assets/bottle2.svg';
@@ -178,9 +177,6 @@ function Home() {
 
             <div>
                 <img className='fixed bottom-0 right-0 z-[-50] max-w-[520px]' src={Wave} />
-            </div>
-            <div>
-                <img className='fixed bottom-5 left-5 z-[-50] max-w-[45px]' src={Resources} />
             </div>
 
             {selectedStoryId !== null && (

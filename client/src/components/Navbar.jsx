@@ -4,6 +4,7 @@ import Feather from '../assets/Feather.png';
 import { FaCircleExclamation } from "react-icons/fa6";
 import Notice from "./Notice";
 import { useState } from "react";
+import Resources from '../assets/resources.svg';
 
 function Navbar(props) {
 
@@ -25,26 +26,33 @@ function Navbar(props) {
                     About Us
                 </Link>
                 {
-                    props.page != "home" && props.page != "about" 
-                    ?
-                    (<Link to="/" className="flex content-center justify-center h-min cursor-pointer ">
-                        <h1 className="text-2xl hover:text-m-navy duration-300">- MESSAGE IN A BOTTLE -</h1>
-                    </Link>)
-                    :
-                    ""
+                    props.page != "home" && props.page != "about"
+                        ?
+                        (<Link to="/" className="flex content-center justify-center h-min cursor-pointer ">
+                            <h1 className="text-2xl hover:text-m-navy duration-300">- MESSAGE IN A BOTTLE -</h1>
+                        </Link>)
+                        :
+                        ""
                 }
                 {
                     props.page === "submit"
-                    ?
+                        ?
+                        <>
+                            <FaCircleExclamation className="text-6xl cursor-pointer hover:text-m-navy duration-300" onClick={openOverlay} />
+                            <Notice onClose={closeOverlay} isVisible={overlayVisible} />
+                        </>
+                        :
+                        (<Link to="/submit" className="flex flex-col content-center gap-2 text-lg cursor-pointer hover:text-m-navy duration-300">
+                            <img className="h-[70px] mx-auto" src={Feather} />
+                            Send a Bottle
+                        </Link>)
+                }
+
+                {props.page == "home" &&
                     <>
-                        <FaCircleExclamation className="text-6xl cursor-pointer hover:text-m-navy duration-300" onClick={openOverlay}/>
+                        <img src={Resources} className="fixed bottom-5 left-5 z-[50] text-6xl cursor-pointer" onClick={openOverlay} />
                         <Notice onClose={closeOverlay} isVisible={overlayVisible} />
                     </>
-                    :
-                    (<Link to="/submit" className="flex flex-col content-center gap-2 text-lg cursor-pointer hover:text-m-navy duration-300">
-                        <img className="h-[70px] mx-auto" src={Feather} />
-                        Send a Bottle
-                    </Link>)
                 }
             </div>
         </>
