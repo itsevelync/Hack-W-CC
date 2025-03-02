@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import storiesData from '../data/stories.json';
-import { useNavigate } from 'react-router-dom';
-import Bottle from '../assets/bottle.svg';
 import Wave from '../assets/wave.svg';
 import TagLeft from '../assets/tag-left.svg';
 import TagRight from '../assets/tag-right.svg';
@@ -10,6 +8,7 @@ import { FaFilter } from "react-icons/fa";
 import Navbar from "../components/Navbar";
 import Bottle2 from '../assets/bottle2.svg';
 import Ribbon from '../assets/ribbon.svg';
+import Story from "../components/Story";
 
 function Home() {
     const [stories, setStories] = useState([]);
@@ -18,7 +17,17 @@ function Home() {
     const [searchStatus, setSearchStatus] = useState(null);
     const [isFilterOpen, setIsFilterOpen] = useState(false);
     const [selectedTags, setSelectedTags] = useState([]);
-    const navigate = useNavigate();
+    const [selectedStoryId, setSelectedStoryId] = useState(null);
+
+    const [overlayVisible, setOverlayVisible] = useState(false);
+
+    const openOverlay = () => {
+        setOverlayVisible(true);
+    }
+
+    const closeOverlay = () => {
+        setOverlayVisible(false);
+    }
 
     useEffect(() => {
         setStories(storiesData);
@@ -56,11 +65,13 @@ function Home() {
 
     const handleRandomClick = () => {
         let storyId = Math.floor(Math.random() * stories.length);
-        navigate(`/story/${storyId}`);
+        setSelectedStoryId(storyId);
+        openOverlay();
     };
 
     const handleCardClick = (storyId) => {
-        navigate(`/story/${storyId}`);
+        setSelectedStoryId(storyId);
+        openOverlay();
     };
 
     const handleTagFilterChange = (tag) => {
@@ -171,6 +182,10 @@ function Home() {
             <div>
                 <img className='fixed bottom-5 left-5 z-[-50] max-w-[45px]' src={Resources} />
             </div>
+
+            {selectedStoryId !== null && (
+                <Story id={selectedStoryId} onClose={closeOverlay} isVisible={overlayVisible} />
+            )}
         </>
     );
 }

@@ -8,10 +8,15 @@
     --color-m-sky: #D2F4F7;
     --color-m-brown: #533B3B;
     --color-m-red: #EA6A63;
+    --color-m-purple: #C896CA;
 }
 
 @layer utilities {
     .search-bg {
+        background: radial-gradient(51.46% 51.46% at 53.59% 63.81%, #FFFADE 0%, #F8E8CB 100%);
+    }
+
+    .story-bg {
         background: radial-gradient(51.46% 51.46% at 53.59% 63.81%, #FFFADE 0%, #F8E8CB 100%);
     }
 
