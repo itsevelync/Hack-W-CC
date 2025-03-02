@@ -16,11 +16,24 @@
     }
 }
 
-@keyframe messageSent {
-    0%  {opacity: 0; top: 0px}
-    50% {opacity: 1; top: 100px}
-    100% {opacity: 0; top: 0px}
+@keyframes messageSent {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
+
+/* .message-sent {
+    animation: messageSent 3s ease-in-out forwards;
+} */
 
 body {
     color: var(--color-m-brown);
