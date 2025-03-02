@@ -30,7 +30,8 @@ app.post('/api/stories', (req, res) => {
         } catch (err) {
             console.error('Error parsing JSON', err);
         }
-
+        newStory.id = stories.length;
+        newStory.hearts = 0;
         stories.push(newStory);
 
         fs.writeFile(storiesFilePath, JSON.stringify(stories, null, 2), (err) => {
@@ -42,6 +43,7 @@ app.post('/api/stories', (req, res) => {
         });
     });
 });
+
 
 // Endpoint to handle fetching a specific story by ID
 app.get('/api/stories/:id', (req, res) => {
@@ -66,7 +68,7 @@ app.get('/api/stories/:id', (req, res) => {
             return res.status(404).send('Story not found');
         }
 
-        res.json(story); // Return the story as JSON
+        res.json(story);
     });
 });
 
@@ -90,7 +92,7 @@ app.put('/api/stories/:id/heart', (req, res) => {
         // Find the story by ID and update the hearts count
         const storyIndex = stories.findIndex(story => story.id === parseInt(id));
         if (storyIndex !== -1) {
-            stories[storyIndex].hearts = hearts; // Update hearts count
+            stories[storyIndex].hearts = hearts;
         } else {
             return res.status(404).send('Story not found');
         }
@@ -107,8 +109,8 @@ app.put('/api/stories/:id/heart', (req, res) => {
 });
 
 app.put('/api/stories/:id', (req, res) => {
-    const { id } = req.params;  // Get story id from the request URL
-    const { hearts } = req.body;  // Get the hearts value from the request body
+    const { id } = req.params;
+    const { hearts } = req.body;
 
     fs.readFile(storiesFilePath, 'utf8', (err, data) => {
         if (err) {
@@ -123,8 +125,8 @@ app.put('/api/stories/:id', (req, res) => {
             console.error('Error parsing JSON', err);
         }
 
-        // Find the story by ID (assuming `id` is unique)
-        const storyIndex = stories.findIndex(story => story.id === parseInt(id)); // Assuming ID is numeric
+        // Find the story by ID
+        const storyIndex = stories.findIndex(story => story.id === parseInt(id));
         if (storyIndex === -1) {
             return res.status(404).send('Story not found');
         }
