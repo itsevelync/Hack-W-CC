@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { IoClose } from "react-icons/io5";
+import Navbar from "../components/Navbar";
 
 function Submit() {
     const [tags, setTags] = useState([]);
@@ -101,95 +102,98 @@ function Submit() {
     };
 
     return (
-        <div className='w-full max-w-[700px] m-auto p-6'>
-            <h1 className="font-bold text-center text-2xl">Submit your story!</h1>
-            <form id="submitForm" onSubmit={handleSubmit}>
-                
-                <label htmlFor="title">Title:</label><br />
-                <input
-                    className="border w-full border-gray-400 p-2 rounded-md mb-5"
-                    type="text"
-                    id="title"
-                    name="title"
-                    placeholder="Story Title"
-                    value={title}
-                    onChange={handleTitleChange}
-                />
-                
-                <label htmlFor="description">Share your story below:</label><br />
-                <textarea
-                    className="border w-full border-gray-400 p-2 rounded-md h-[300px] mb-5"
-                    id="description"
-                    name="description"
-                    placeholder="Start typing here..."
-                    value={description}
-                    onChange={handleDescriptionChange}
-                    onKeyDown={handleKeyDown}
-                ></textarea>
+        <>
+            <Navbar page="submit"/>
+            <div className='w-full max-w-[700px] m-auto p-6'>
+                <h1 className="font-bold text-center text-2xl">Submit your story!</h1>
+                <form id="submitForm" onSubmit={handleSubmit}>
+                    
+                    <label htmlFor="title">Title:</label><br />
+                    <input
+                        className="border w-full border-gray-400 p-2 rounded-md mb-5"
+                        type="text"
+                        id="title"
+                        name="title"
+                        placeholder="Story Title"
+                        value={title}
+                        onChange={handleTitleChange}
+                    />
+                    
+                    <label htmlFor="description">Share your story below:</label><br />
+                    <textarea
+                        className="border w-full border-gray-400 p-2 rounded-md h-[300px] mb-5"
+                        id="description"
+                        name="description"
+                        placeholder="Start typing here..."
+                        value={description}
+                        onChange={handleDescriptionChange}
+                        onKeyDown={handleKeyDown}
+                    ></textarea>
 
-                <label htmlFor="tags">Tags:
-                <br />
-                <em>Use the 'Enter' key to add a tag.</em></label><br />
-                <input
-                    className="border border-gray-400 rounded-md p-2 w-[50%]"
-                    type="text"
-                    id="tags"
-                    name="tags"
-                    placeholder="e.g., rant, United States, nostalgia"
-                    value={tagInput}
-                    onChange={handleTagInputChange}
-                    onKeyDown={handleTagKeyPress}
-                />
+                    <label htmlFor="tags">Tags:
+                    <br />
+                    <em>Use the 'Enter' key to add a tag.</em></label><br />
+                    <input
+                        className="border border-gray-400 rounded-md p-2 w-[50%]"
+                        type="text"
+                        id="tags"
+                        name="tags"
+                        placeholder="e.g., rant, United States, nostalgia"
+                        value={tagInput}
+                        onChange={handleTagInputChange}
+                        onKeyDown={handleTagKeyPress}
+                    />
 
-                <div className="tags-container flex gap-2 mt-2 mb-5" id="tagsContainer">
-                    {tags.map((tag, index) => (
-                        <span
-                            key={index}
-                            className="tag cursor-pointer border p-1 rounded-sm flex justify-center items-center"
-                            onClick={() => handleTagDelete(index)}
-                        >
-                            <span className="delete-tag pointer mr-1">
-                                <IoClose />
+                    <div className="tags-container flex gap-2 mt-2 mb-5" id="tagsContainer">
+                        {tags.map((tag, index) => (
+                            <span
+                                key={index}
+                                className="tag cursor-pointer border p-1 rounded-sm flex justify-center items-center"
+                                onClick={() => handleTagDelete(index)}
+                            >
+                                <span className="delete-tag pointer mr-1">
+                                    <IoClose />
+                                </span>
+                                {tag}
                             </span>
-                            {tag}
-                        </span>
-                    ))}
-                </div>
+                        ))}
+                    </div>
 
-                {/* Color Buttons */}
-                <label htmlFor="color">Select a color:</label><br />
-                <div className="flex gap-3 mb-5">
-                    <button
-                        type="button"
-                        className={`border p-2 rounded-md ${color === 'red' ? 'bg-red-500 text-white' : 'bg-white'}`}
-                        onClick={() => handleColorChange('red')}
-                    >
-                        Red
-                    </button>
-                    <button
-                        type="button"
-                        className={`border p-2 rounded-md ${color === 'green' ? 'bg-green-500 text-white' : 'bg-white'}`}
-                        onClick={() => handleColorChange('green')}
-                    >
-                        Green
-                    </button>
-                    <button
-                        type="button"
-                        className={`border p-2 rounded-md ${color === 'blue' ? 'bg-blue-500 text-white' : 'bg-white'}`}
-                        onClick={() => handleColorChange('blue')}
-                    >
-                        Blue
-                    </button>
-                </div>
+                    {/* Color Buttons */}
+                    <label htmlFor="color">Select a color:</label><br />
+                    <div className="flex gap-3 mb-5">
+                        <button
+                            type="button"
+                            className={`border p-2 rounded-md ${color === 'red' ? 'bg-red-500 text-white' : 'bg-white'}`}
+                            onClick={() => handleColorChange('red')}
+                        >
+                            Red
+                        </button>
+                        <button
+                            type="button"
+                            className={`border p-2 rounded-md ${color === 'green' ? 'bg-green-500 text-white' : 'bg-white'}`}
+                            onClick={() => handleColorChange('green')}
+                        >
+                            Green
+                        </button>
+                        <button
+                            type="button"
+                            className={`border p-2 rounded-md ${color === 'blue' ? 'bg-blue-500 text-white' : 'bg-white'}`}
+                            onClick={() => handleColorChange('blue')}
+                        >
+                            Blue
+                        </button>
+                    </div>
 
-                {/* Error Message */}
-                {error && <p className="text-red-500 text-sm">{error}</p>}
+                    {/* Error Message */}
+                    {error && <p className="text-red-500 text-sm">{error}</p>}
 
-                <button className="rounded-md cursor-pointer mt-3 bg-black px-4 py-2 text-white" type="submit">
-                    Submit
-                </button>
-            </form>
-        </div>
+                    <button className="rounded-md cursor-pointer mt-3 bg-black px-4 py-2 text-white" type="submit">
+                        Submit
+                    </button>
+                </form>
+            </div>
+        </>
     );
 }
 

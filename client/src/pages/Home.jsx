@@ -7,6 +7,7 @@ import TagLeft from '../assets/tag-left.svg';
 import TagRight from '../assets/tag-right.svg';
 import Resources from '../assets/resources.svg';
 import { FaFilter } from "react-icons/fa";
+import Navbar from "../components/Navbar";
 
 function Home() {
     const [stories, setStories] = useState([]);
@@ -70,6 +71,7 @@ function Home() {
 
     return (
         <>
+            <Navbar page="home"/>
             <div className='max-w-[1200px] px-[50px] my-10 mx-auto'>
                 <h1 className='text-m-brown text-center text-4xl mb-8'>Message in a Bottle</h1>
 

@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import Scroll from '../assets/Scroll.png';
 import Feather from '../assets/Feather.png';
+import { FaCircleExclamation } from "react-icons/fa6";
 
-function Navbar() {
+function Navbar(props) {
 
     return (
         <>
@@ -11,13 +12,27 @@ function Navbar() {
                     <img className="h-[70px] mx-auto" src={Scroll} />
                     About Us
                 </Link>
-                <Link to="/home" className="flex content-center justify-center h-min">
-                    <h1 className="text-2xl">- MESSAGE IN A BOTTLE -</h1>
-                </Link>
-                <Link to="/submit" className="flex flex-col content-center gap-2 text-lg">
-                    <img className="h-[70px] mx-auto" src={Feather} />
-                    Send a Bottle
-                </Link>
+                {
+                    props.page != "home" 
+                    ?
+                    (<Link to="/" className="flex content-center justify-center h-min">
+                        <h1 className="text-2xl">- MESSAGE IN A BOTTLE -</h1>
+                    </Link>)
+                    :
+                    ""
+                }
+                {
+                    props.page === "submit"
+                    ?
+                    (<Link to="/submit" className="flex content-center text-lg">
+                        <FaCircleExclamation className="text-6xl"/>
+                    </Link>)
+                    :
+                    (<Link to="/submit" className="flex flex-col content-center gap-2 text-lg">
+                        <img className="h-[70px] mx-auto" src={Feather} />
+                        Send a Bottle
+                    </Link>)
+                }
             </div>
         </>
     )
