@@ -2,8 +2,20 @@ import { Link } from "react-router-dom";
 import Scroll from '../assets/Scroll.png';
 import Feather from '../assets/Feather.png';
 import { FaCircleExclamation } from "react-icons/fa6";
+import Notice from "./Notice";
+import { useState } from "react";
 
 function Navbar(props) {
+
+    const [overlayVisible, setOverlayVisible] = useState(false);
+
+    const openOverlay = () => {
+        setOverlayVisible(true);
+    }
+
+    const closeOverlay = () => {
+        setOverlayVisible(false);
+    }
 
     return (
         <>
@@ -24,9 +36,10 @@ function Navbar(props) {
                 {
                     props.page === "submit"
                     ?
-                    (<Link to="/submit" className="flex content-center text-lg">
-                        <FaCircleExclamation className="text-6xl"/>
-                    </Link>)
+                    <>
+                        <FaCircleExclamation className="text-6xl" onClick={openOverlay}/>
+                        <Notice onClose={closeOverlay} isVisible={overlayVisible} />
+                    </>
                     :
                     (<Link to="/submit" className="flex flex-col content-center gap-2 text-lg">
                         <img className="h-[70px] mx-auto" src={Feather} />
