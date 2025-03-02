@@ -118,15 +118,5 @@
     ],
     "color": "red",
     "hearts": 2
-  },
-  {
-    "id": 10,
-    "title": "test",
-    "content": "story",
-    "tags": [
-      "USA"
-    ],
-    "color": "red",
-    "hearts": 35
   }
 ]

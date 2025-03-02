@@ -58,5 +58,13 @@ body {
 }
 
 .card:hover {
-    scale: 1.1;
+    scale: 1.05;
+}
+
+.resources {
+    transition: filter 0.3s ease;
+}
+
+.resources:hover {
+    filter: brightness(150%)  saturate(350%) hue-rotate(-5deg);
 }

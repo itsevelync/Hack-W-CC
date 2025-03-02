@@ -37,7 +37,7 @@ function Navbar(props) {
                     props.page === "submit"
                         ?
                         <>
-                            <img src={Resources} className="text-6xl cursor-pointer duration-300" onClick={openOverlay} />
+                            <img src={Resources} className="resources text-6xl cursor-pointer duration-300" onClick={openOverlay} />
                             <Notice onClose={closeOverlay} isVisible={overlayVisible} />
                         </>
                         :
@@ -49,7 +49,7 @@ function Navbar(props) {
 
                 {props.page == "home" &&
                     <>
-                        <img src={Resources} className="fixed bottom-5 left-5 z-[50] text-6xl cursor-pointer" onClick={openOverlay} />
+                        <img src={Resources} className="resources fixed bottom-5 left-5 z-[50] text-6xl cursor-pointer" onClick={openOverlay} />
                         <Notice onClose={closeOverlay} isVisible={overlayVisible} />
                     </>
                 }
