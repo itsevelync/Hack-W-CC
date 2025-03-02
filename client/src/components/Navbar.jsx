@@ -18,11 +18,6 @@ function Navbar() {
                     <img className="w-[50px] mx-auto" src={Feather} />
                     Send a Bottle
                 </Link>
-                {/* <div className="flex gap-4">
-                    <Link to="/">Home</Link>
-                    <Link to="/about">About</Link>
-                    <Link to="/submit">Submit</Link>
-                </div> */}
             </div>
         </>
     )
