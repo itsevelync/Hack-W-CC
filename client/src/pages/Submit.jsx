@@ -103,7 +103,7 @@ function Submit() {
 
     return (
         <div className='w-full h-screen max-w-9/10 justify-center m-auto p-6'>
-            <h1 className='text-center text-xl pb-4'>Message in a Bottle</h1>
+            {/* <h1 className='text-center text-xl pb-4'>Message in a Bottle</h1> */}
                     <form className='h-full w-full'id="submitForm" onSubmit={handleSubmit}>
                     <div className="grid grid-cols-5 gap-8 h-full w-full">
                         <img className='col-start-1 h-full w-full' src={feather}/>
