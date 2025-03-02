@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import Scroll from '../assets/Scroll.png';
 import Feather from '../assets/Feather.png';
-import { FaCircleExclamation } from "react-icons/fa6";
 import Notice from "./Notice";
 import { useState } from "react";
 import Resources from '../assets/resources.svg';
@@ -38,7 +37,7 @@ function Navbar(props) {
                     props.page === "submit"
                         ?
                         <>
-                            <FaCircleExclamation className="text-6xl cursor-pointer hover:text-m-navy duration-300" onClick={openOverlay} />
+                            <img src={Resources} className="text-6xl cursor-pointer duration-300" onClick={openOverlay} />
                             <Notice onClose={closeOverlay} isVisible={overlayVisible} />
                         </>
                         :

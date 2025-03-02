@@ -109,7 +109,7 @@ function Submit() {
                 {/* <h1 className='text-center text-xl pb-4'>Message in a Bottle</h1> */}
                 <form className='h-full w-full' id="submitForm" onSubmit={handleSubmit}>
                     <div className="grid grid-cols-5 gap-8 h-full w-full">
-                        <img className='col-start-1 h-full w-full' src={feather} />
+                        <img className='col-start-1 h-8/10 w-full' src={feather} />
                         <div className='col-start-2 col-span-2 h-full w-full'>
                             <h1 className="text-left text-2xl pb-4">Write your message:</h1>
                             <textarea
@@ -123,7 +123,7 @@ function Submit() {
                             ></textarea>
                         </div>
 
-                        <div className='col-start-4 col-span-2 h-full w-full'>
+                        <div className='col-start-4 col-span-2 h-full w-full mt-6'>
                             <label htmlFor="title">Title:</label><br />
                             <input
                                 className="border w-full border-gray-400 p-2 rounded-md mb-5"
@@ -189,7 +189,7 @@ function Submit() {
                                     Blue
                                 </button>
                             </div>
-                            <button className="rounded-md cursor-pointer mt-3 bg-black px-4 py-2 text-white" type="submit">
+                            <button className="rounded-md cursor-pointer mt-3 bg-m-brown hover:bg-m-red duration-300 px-4 py-2 text-white" type="submit">
                                 Submit
                             </button>
                         </div>
