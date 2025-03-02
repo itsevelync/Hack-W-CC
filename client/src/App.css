@@ -14,6 +14,34 @@
     .search-bg {
         background: radial-gradient(51.46% 51.46% at 53.59% 63.81%, #FFFADE 0%, #F8E8CB 100%);
     }
+
+    .filter-red {
+        filter: invert(44%) sepia(25%) saturate(1309%) hue-rotate(330deg) brightness(77%) contrast(101%);
+    }
+
+    .filter-orange {
+        filter: hue-rotate(30deg) saturate(80%) brightness(150%);
+    }
+
+    .filter-yellow {
+        filter: hue-rotate(60deg) saturate(80%) brightness(200%);
+    }
+
+    .filter-green {
+        filter: invert(61%) sepia(68%) saturate(462%) hue-rotate(69deg) brightness(89%) contrast(83%);
+    }
+
+    .filter-blue {
+        filter: invert(62%) sepia(15%) saturate(1445%) hue-rotate(63deg) brightness(92%) contrast(90%);
+    }
+
+    .filter-purple {
+        filter: hue-rotate(260deg) saturate(80%) brightness(180%);
+    }
+
+    .filter-pink {
+        filter: hue-rotate(360deg) saturate(80%) brightness(200%);
+    }
 }
 
 body {
