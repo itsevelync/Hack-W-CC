@@ -13,8 +13,8 @@ function Home() {
     const [searchQuery, setSearchQuery] = useState('');
     const [filteredStories, setFilteredStories] = useState(storiesData);
     const [searchStatus, setSearchStatus] = useState(null);
-    const [isFilterOpen, setIsFilterOpen] = useState(false); // For filter visibility
-    const [selectedTags, setSelectedTags] = useState([]); // To store selected tags
+    const [isFilterOpen, setIsFilterOpen] = useState(false);
+    const [selectedTags, setSelectedTags] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -54,21 +54,18 @@ function Home() {
     };
 
     const handleTagFilterChange = (tag) => {
-        // Toggle tag selection
         const newSelectedTags = selectedTags.includes(tag)
-            ? selectedTags.filter(t => t !== tag)
+            ? selectedTags.filter(t => t.toLowerCase() !== tag.toLowerCase())
             : [...selectedTags, tag];
-
+    
         setSelectedTags(newSelectedTags);
-
-        // Filter stories based on selected tags
+    
         const filtered = stories.filter((story) => {
-            return newSelectedTags.every(tag => story.tags.includes(tag));
+            return newSelectedTags.every(tag => story.tags.some(storyTag => storyTag.toLowerCase() === tag.toLowerCase()));
         });
         setFilteredStories(filtered);
-    };
+    };    
 
-    // Static tags for the filter
     const filterTags = ['Rant', 'Angry', 'Positive', 'Mindful'];
 
     return (
@@ -87,7 +84,7 @@ function Home() {
                         />
                         <FaFilter
                             className='-ml-7 text-m-brown cursor-pointer'
-                            onClick={() => setIsFilterOpen(!isFilterOpen)} // Toggle filter visibility
+                            onClick={() => setIsFilterOpen(!isFilterOpen)}
                         />
                     </div>
                     <button
@@ -124,8 +121,8 @@ function Home() {
                                     />
 
                                     <img src={TagLeft} className='h-[25px]' />
-                                    <div className='h-[25px] bg-[#C896CA] flex items-center -mx-1'>
-                                        <p className='text-white px-1 text-xs'>{tag}</p>
+                                    <div className='h-[25px] bg-[#C896CA] flex items-center -mx-[1px]'>
+                                        <p className='text-white pl-1 text-xs'>{tag}</p>
                                     </div>
                                     <img src={TagRight} className='h-[25px]' />
                                 </label>
@@ -145,8 +142,8 @@ function Home() {
                                 {story.tags.map((tag) => (
                                     <div className='flex items-center'>
                                         <img src={TagLeft} className='h-[25px]' />
-                                        <div className='h-[25px] bg-[#C896CA] flex items-center -mx-1'>
-                                            <p className='text-white px-1 text-xs'>{tag}</p>
+                                        <div className='h-[25px] bg-[#C896CA] flex items-center -mx-[1px]'>
+                                            <p className='text-white pl-1 text-xs'>{tag}</p>
                                         </div>
                                         <img src={TagRight} className='h-[25px]' />
                                     </div>
