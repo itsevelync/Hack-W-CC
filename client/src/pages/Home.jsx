@@ -24,11 +24,7 @@ function Home() {
         setStories(storiesData);
     }, []);
 
-    const handleSearchChange = (e) => {
-        setSearchQuery(e.target.value);
-    };
-
-    const handleSearchClick = () => {
+    useEffect(() => {
         if (searchQuery !== '') {
             const filtered = stories.filter((story) => {
                 const query = searchQuery.toLowerCase();
@@ -44,7 +40,18 @@ function Home() {
                     ? `Searching stories for "${searchQuery}" - ${filtered.length} ${filtered.length === 1 ? 'post' : 'posts'} found`
                     : `No posts found for "${searchQuery}"`
             );
+        } else {
+            setFilteredStories(storiesData);
+            setSearchStatus(null);
         }
+    }, [searchQuery, stories]);
+
+    const handleSearchChange = (e) => {
+        setSearchQuery(e.target.value);
+    };
+
+    const handleSearchClick = () => {
+        setSearchQuery(searchQuery);
     };
 
     const handleRandomClick = () => {
@@ -63,7 +70,7 @@ function Home() {
 
         setSelectedTags(newSelectedTags);
 
-        const filtered = stories.filter((story) => {
+        const filtered = filteredStories.filter((story) => {
             return newSelectedTags.every(tag => story.tags.some(storyTag => storyTag.toLowerCase() === tag.toLowerCase()));
         });
         setFilteredStories(filtered);
@@ -99,20 +106,14 @@ function Home() {
                     </button>
                     <button
                         onClick={handleRandomClick}
-                        className="ml-3 bg-m-navy text-white px-4 py-2 rounded-md cursor-pointer"
+                        className="ml-3 bg-[#93a7d6] text-white px-4 py-2 rounded-md cursor-pointer"
                     >
                         Random
                     </button>
                 </div>
 
-                {searchStatus && (
-                    <p className="mb-4">
-                        {searchStatus}
-                    </p>
-                )}
-
                 {isFilterOpen && (
-                    <div className="bg-white border border-m-brown p-4 rounded-md search-bg w-full">
+                    <div className="bg-white border mb-3 border-m-brown p-4 rounded-md search-bg w-full">
                         <div className="flex gap-4">
                             {filterTags.map((tag) => (
                                 <label className='flex items-center'>
@@ -122,20 +123,24 @@ function Home() {
                                         onChange={() => handleTagFilterChange(tag)}
                                         className='mr-2'
                                     />
-
                                     <img src={TagLeft} className='h-[25px]' />
                                     <div className='h-[25px] bg-[#C896CA] flex items-center -mx-[1px]'>
                                         <p className='text-white pl-1 text-xs'>{tag}</p>
                                     </div>
                                     <img src={TagRight} className='h-[25px]' />
                                 </label>
-
                             ))}
                         </div>
                     </div>
                 )}
 
-                <div className='grid grid-cols-3 xl:grid-cols-4 gap-x-10 gap-y-15 p-7'>
+                {searchStatus && (
+                    <p className="mb-4">
+                        {searchStatus}
+                    </p>
+                )}
+
+                <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-10 gap-y-15 p-7'>
                     {filteredStories.map((story, index) => (
                         <div key={index} className={`story cursor-pointer rounded-md `} onClick={() => handleCardClick(index)}>
                             <div className='relative max-w-[225px] m-auto'>
