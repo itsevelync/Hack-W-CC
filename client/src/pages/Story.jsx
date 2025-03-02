@@ -11,8 +11,9 @@ function Story() {
     <>
       <Navbar page="story"/>
       <div>
-        <h1>{story ? story.title : 'Story Not Found'}</h1>
-        {/* You can add more content here like story content, tags, etc. */}
+        <h1 className=''>{story ? story.title : 'Story Not Found'}</h1>
+        <hr className='border-m-brown mb-4' />
+        <p>{story.content}</p>
       </div>
     </>
   );

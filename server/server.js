@@ -43,6 +43,107 @@ app.post('/api/stories', (req, res) => {
     });
 });
 
+// Endpoint to handle fetching a specific story by ID
+app.get('/api/stories/:id', (req, res) => {
+    const { id } = req.params;
+
+    fs.readFile(storiesFilePath, 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading the file', err);
+            return res.status(500).send('Server error');
+        }
+
+        let stories = [];
+        try {
+            stories = JSON.parse(data);
+        } catch (err) {
+            console.error('Error parsing JSON', err);
+        }
+
+        const story = stories[id];
+
+        if (!story) {
+            return res.status(404).send('Story not found');
+        }
+
+        res.json(story); // Return the story as JSON
+    });
+});
+
+app.put('/api/stories/:id/heart', (req, res) => {
+    const { id } = req.params;
+    const { hearts } = req.body;
+
+    fs.readFile(storiesFilePath, 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading the file', err);
+            return res.status(500).send('Server error');
+        }
+
+        let stories = [];
+        try {
+            stories = JSON.parse(data);
+        } catch (err) {
+            console.error('Error parsing JSON', err);
+        }
+
+        // Find the story by ID and update the hearts count
+        const storyIndex = stories.findIndex(story => story.id === parseInt(id));
+        if (storyIndex !== -1) {
+            stories[storyIndex].hearts = hearts; // Update hearts count
+        } else {
+            return res.status(404).send('Story not found');
+        }
+
+        // Write the updated stories back to the file
+        fs.writeFile(storiesFilePath, JSON.stringify(stories, null, 2), (err) => {
+            if (err) {
+                console.error('Error writing the file', err);
+                return res.status(500).send('Server error');
+            }
+            res.status(200).send('Hearts updated successfully');
+        });
+    });
+});
+
+app.put('/api/stories/:id', (req, res) => {
+    const { id } = req.params;  // Get story id from the request URL
+    const { hearts } = req.body;  // Get the hearts value from the request body
+
+    fs.readFile(storiesFilePath, 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading the file', err);
+            return res.status(500).send('Server error');
+        }
+
+        let stories = [];
+        try {
+            stories = JSON.parse(data);
+        } catch (err) {
+            console.error('Error parsing JSON', err);
+        }
+
+        // Find the story by ID (assuming `id` is unique)
+        const storyIndex = stories.findIndex(story => story.id === parseInt(id)); // Assuming ID is numeric
+        if (storyIndex === -1) {
+            return res.status(404).send('Story not found');
+        }
+
+        // Update the hearts count for the found story
+        stories[storyIndex].hearts = hearts;
+
+        // Write the updated data back to the JSON file
+        fs.writeFile(storiesFilePath, JSON.stringify(stories, null, 2), (err) => {
+            if (err) {
+                console.error('Error writing the file', err);
+                return res.status(500).send('Server error');
+            }
+            res.status(200).send('Hearts updated successfully');
+        });
+    });
+});
+
+
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
