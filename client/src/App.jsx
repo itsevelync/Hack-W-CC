@@ -1,5 +1,6 @@
 import Navbar from "./components/Navbar"
 import Home from "./pages/Home"
+import About from "./pages/About"
 import Submit from "./pages/Submit"
 import Story from "./pages/Story"
 import './App.css'
@@ -15,6 +16,7 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
             <Route path="/submit" element={<Submit />} />
             <Route path="/story/:id" element={<Story />} />
           </Routes>
