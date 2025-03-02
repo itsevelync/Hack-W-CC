@@ -11,7 +11,7 @@ function Navbar() {
                     <img className="w-[50px] mx-auto" src={Scroll} />
                     About Us
                 </Link>
-                <Link to="/about" className="flex content-center justify-center h-min">
+                <Link to="/home" className="flex content-center justify-center h-min">
                     <h1 className="text-2xl">MESSAGE IN A BOTTLE</h1>
                 </Link>
                 <Link to="/submit" className="flex flex-col content-center">
