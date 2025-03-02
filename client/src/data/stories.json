@@ -1,0 +1,19 @@
+[
+    {
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "tags": ["Vent", "Teen", "Nostalgia"]
+    },
+    {
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget felis eget nunc lobortis mattis aliquam. Ut tristique et egestas quis.",
+      "tags": ["Rant", "Romance", "Thriller"]
+    },
+    {
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur aliquet quam id dui posuere blandit. Nulla porttitor accumsan tincidunt.",
+      "tags": ["Happy", "Slice of Life", "Canada"]
+    },
+    {
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.",
+      "tags": ["United States", "Female", "Sad"]
+    }
+  ]
+  
