@@ -139,7 +139,7 @@ function Submit() {
                                 <br />
                                 <em className='text-sm'>Use the 'Enter' key to add a tag.</em></label><br />
                             <input
-                                className="border border-gray-400 rounded-md p-2 w-[50%] col-start-2"
+                                className="border w-full border-gray-400 rounded-md p-2 w-[50%] col-start-2"
                                 type="text"
                                 id="tags"
                                 name="tags"
@@ -166,37 +166,65 @@ function Submit() {
 
                             {/* Color Buttons */}
                             <label className='col-start-2' htmlFor="color">Select a color:</label><br />
-                            <div className="flex gap-3 mb-5">
+                            <div className="flex flex-wrap gap-3 mb-5">
                                 <button
                                     type="button"
-                                    className={`border p-2 rounded-md ${color === 'red' ? 'bg-red-500 text-white' : 'bg-white'}`}
+                                    className={`border cursor-pointer p-2 rounded-md ${color === 'red' ? 'bg-[#CF363E] text-white' : 'bg-white'}`}
                                     onClick={() => handleColorChange('red')}
                                 >
                                     Red
                                 </button>
                                 <button
                                     type="button"
-                                    className={`border p-2 rounded-md ${color === 'green' ? 'bg-green-500 text-white' : 'bg-white'}`}
+                                    className={`border cursor-pointer p-2 rounded-md ${color === 'orange' ? 'bg-[#F67526] text-white' : 'bg-white'}`}
+                                    onClick={() => handleColorChange('orange')}
+                                >
+                                    Orange
+                                </button>
+                                <button
+                                    type="button"
+                                    className={`border cursor-pointer p-2 rounded-md ${color === 'yellow' ? 'bg-[#F0B826] text-white' : 'bg-white'}`}
+                                    onClick={() => handleColorChange('yellow')}
+                                >
+                                    Yellow
+                                </button>
+                                <button
+                                    type="button"
+                                    className={`border cursor-pointer p-2 rounded-md ${color === 'green' ? 'bg-[#2AA05D] text-white' : 'bg-white'}`}
                                     onClick={() => handleColorChange('green')}
                                 >
                                     Green
                                 </button>
                                 <button
                                     type="button"
-                                    className={`border p-2 rounded-md ${color === 'blue' ? 'bg-blue-500 text-white' : 'bg-white'}`}
+                                    className={`border cursor-pointer p-2 rounded-md ${color === 'blue' ? 'bg-[#00A9E0] text-white' : 'bg-white'}`}
                                     onClick={() => handleColorChange('blue')}
                                 >
                                     Blue
+                                </button>
+                                <button
+                                    type="button"
+                                    className={`border cursor-pointer p-2 rounded-md ${color === 'purple' ? 'bg-[#AC8DFE] text-white' : 'bg-white'}`}
+                                    onClick={() => handleColorChange('purple')}
+                                >
+                                    Purple
+                                </button>
+                                <button
+                                    type="button"
+                                    className={`border p-2 rounded-md ${color === 'pink' ? 'bg-[#FF858A] text-white' : 'bg-white'}`}
+                                    onClick={() => handleColorChange('pink')}
+                                >
+                                    Pink
                                 </button>
                             </div>
                             <button className="rounded-md cursor-pointer mt-3 bg-m-brown hover:bg-m-red duration-300 px-4 py-2 text-white" type="submit">
                                 Submit
                             </button>
+
+                            {/* Error Message */}
+                            {error && <p className="mt-3 text-red-500 text-sm">{error}</p>}
                         </div>
                     </div>
-
-                    {/* Error Message */}
-                    {error && <p className="text-red-500 text-sm">{error}</p>}
 
 
                 </form>
