@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { use, useState } from 'react';
 import { IoClose } from "react-icons/io5";
+import MessageSent from '../components/MessageSent';
 
 function Submit() {
     const [tags, setTags] = useState([]);
@@ -8,6 +9,7 @@ function Submit() {
     const [title, setTitle] = useState('');
     const [color, setColor] = useState('');
     const [error, setError] = useState('');
+    const [animation, setAnimation] = useState(false);
 
     const handleTagInputChange = (e) => {
         setTagInput(e.target.value);
@@ -92,6 +94,7 @@ function Submit() {
                 setTags([]);
                 setTitle('');
                 setColor('');
+                setAnimation(true);
             } else {
                 console.error('Failed to submit story');
             }
@@ -188,6 +191,8 @@ function Submit() {
                 <button className="rounded-md cursor-pointer mt-3 bg-black px-4 py-2 text-white" type="submit">
                     Submit
                 </button>
+
+                {animation && ( <MessageSent/> )}
             </form>
         </div>
     );
