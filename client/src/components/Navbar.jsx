@@ -20,7 +20,7 @@ function Navbar(props) {
     return (
         <>
             <div className="w-[1000px] max-width-[90%] flex justify-between items-center gap-10 flex-wrap mx-auto my-5">
-                <Link to="/about" className="flex flex-col content-center gap-2 text-lg cursor-pointer hover:text-m-navy duration-300">
+                <Link to="/about" className="flex flex-col content-center gap-2 text-lg cursor-pointer hover:text-m-red duration-300">
                     <img className="h-[70px] mx-auto" src={Scroll} />
                     About Us
                 </Link>
@@ -28,7 +28,7 @@ function Navbar(props) {
                     props.page != "home" && props.page != "about"
                         ?
                         (<Link to="/" className="flex content-center justify-center h-min cursor-pointer ">
-                            <h1 className="text-2xl hover:text-m-navy duration-300">- MESSAGE IN A BOTTLE -</h1>
+                            <h1 className="text-2xl hover:text-m-red duration-300">- MESSAGE IN A BOTTLE -</h1>
                         </Link>)
                         :
                         ""
@@ -41,7 +41,7 @@ function Navbar(props) {
                             <Notice onClose={closeOverlay} isVisible={overlayVisible} />
                         </>
                         :
-                        (<Link to="/submit" className="flex flex-col content-center gap-2 text-lg cursor-pointer hover:text-m-navy duration-300">
+                        (<Link to="/submit" className="flex flex-col content-center gap-2 text-lg cursor-pointer hover:text-m-red duration-300">
                             <img className="h-[70px] mx-auto" src={Feather} />
                             Send a Bottle
                         </Link>)

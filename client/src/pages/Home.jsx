@@ -110,13 +110,13 @@ function Home() {
                     </div>
                     <button
                         onClick={handleSearchClick}
-                        className="ml-3 bg-m-brown text-white px-4 py-2 rounded-md cursor-pointer"
+                        className="ml-3 bg-m-brown text-white hover:text-m-brown hover:bg-m-tan border-m-brown border-2 duration-300 px-4 py-2 rounded-md cursor-pointer"
                     >
                         Search
                     </button>
                     <button
                         onClick={handleRandomClick}
-                        className="ml-3 bg-[#93a7d6] text-white px-4 py-2 rounded-md cursor-pointer"
+                        className="ml-3 bg-m-navy text-white hover:text-m-navy hover:bg-m-tan border-m-navy border-2 duration-300 px-4 py-2 rounded-md cursor-pointer"
                     >
                         Random
                     </button>
@@ -152,7 +152,7 @@ function Home() {
 
                 <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-10 gap-y-15 p-7'>
                     {filteredStories.map((story, index) => (
-                        <div key={index} className={`story cursor-pointer rounded-md `} onClick={() => handleCardClick(index)}>
+                        <div key={index} className={`story cursor-pointer rounded-md card`} onClick={() => handleCardClick(index)}>
                             <div className='relative max-w-[225px] m-auto'>
                                 <img className='max-w-[225px] m-auto' src={Bottle2} />
                                 <img className={`absolute max-w-[225px] top-0 left-0 right-0 mx-auto w-max filter-${story.color}`} src={Ribbon} />

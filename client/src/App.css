@@ -52,3 +52,11 @@
 body {
     color: var(--color-m-brown);
 }
+
+.card {
+    transition: .5s;
+}
+
+.card:hover {
+    scale: 1.1;
+}
