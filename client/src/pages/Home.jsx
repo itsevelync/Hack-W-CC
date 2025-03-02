@@ -8,6 +8,8 @@ import TagRight from '../assets/tag-right.svg';
 import Resources from '../assets/resources.svg';
 import { FaFilter } from "react-icons/fa";
 import Navbar from "../components/Navbar";
+import Bottle2 from '../assets/bottle2.svg';
+import Ribbon from '../assets/ribbon.svg';
 
 function Home() {
     const [stories, setStories] = useState([]);
@@ -22,11 +24,7 @@ function Home() {
         setStories(storiesData);
     }, []);
 
-    const handleSearchChange = (e) => {
-        setSearchQuery(e.target.value);
-    };
-
-    const handleSearchClick = () => {
+    useEffect(() => {
         if (searchQuery !== '') {
             const filtered = stories.filter((story) => {
                 const query = searchQuery.toLowerCase();
@@ -42,7 +40,18 @@ function Home() {
                     ? `Searching stories for "${searchQuery}" - ${filtered.length} ${filtered.length === 1 ? 'post' : 'posts'} found`
                     : `No posts found for "${searchQuery}"`
             );
+        } else {
+            setFilteredStories(storiesData);
+            setSearchStatus(null);
         }
+    }, [searchQuery, stories]);
+
+    const handleSearchChange = (e) => {
+        setSearchQuery(e.target.value);
+    };
+
+    const handleSearchClick = () => {
+        setSearchQuery(searchQuery);
     };
 
     const handleRandomClick = () => {
@@ -58,20 +67,20 @@ function Home() {
         const newSelectedTags = selectedTags.includes(tag)
             ? selectedTags.filter(t => t.toLowerCase() !== tag.toLowerCase())
             : [...selectedTags, tag];
-    
+
         setSelectedTags(newSelectedTags);
-    
-        const filtered = stories.filter((story) => {
+
+        const filtered = filteredStories.filter((story) => {
             return newSelectedTags.every(tag => story.tags.some(storyTag => storyTag.toLowerCase() === tag.toLowerCase()));
         });
         setFilteredStories(filtered);
-    };    
+    };
 
     const filterTags = ['Rant', 'Angry', 'Positive', 'Mindful'];
 
     return (
         <>
-            <Navbar page="home"/>
+            <Navbar page="home" />
             <div className='max-w-[1200px] px-[50px] my-10 mx-auto'>
                 <h1 className='text-m-brown text-center text-4xl mb-8'>Message in a Bottle</h1>
 
@@ -97,21 +106,14 @@ function Home() {
                     </button>
                     <button
                         onClick={handleRandomClick}
-                        className="ml-3 bg-m-navy text-white px-4 py-2 rounded-md cursor-pointer"
+                        className="ml-3 bg-[#93a7d6] text-white px-4 py-2 rounded-md cursor-pointer"
                     >
                         Random
                     </button>
                 </div>
 
-                {searchStatus && (
-                    <p className="mb-4">
-                        {searchStatus}
-                    </p>
-                )}
-
-                {/* Filter modal */}
                 {isFilterOpen && (
-                    <div className="bg-white border border-m-brown p-4 rounded-md search-bg w-full">
+                    <div className="bg-white border mb-3 border-m-brown p-4 rounded-md search-bg w-full">
                         <div className="flex gap-4">
                             {filterTags.map((tag) => (
                                 <label className='flex items-center'>
@@ -121,24 +123,31 @@ function Home() {
                                         onChange={() => handleTagFilterChange(tag)}
                                         className='mr-2'
                                     />
-
                                     <img src={TagLeft} className='h-[25px]' />
                                     <div className='h-[25px] bg-[#C896CA] flex items-center -mx-[1px]'>
                                         <p className='text-white pl-1 text-xs'>{tag}</p>
                                     </div>
                                     <img src={TagRight} className='h-[25px]' />
                                 </label>
-
                             ))}
                         </div>
                     </div>
                 )}
 
-                {/* Stories grid */}
-                <div className='grid grid-cols-3 xl:grid-cols-4 gap-x-10 gap-y-15 p-7'>
+                {searchStatus && (
+                    <p className="mb-4">
+                        {searchStatus}
+                    </p>
+                )}
+
+                <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-10 gap-y-15 p-7'>
                     {filteredStories.map((story, index) => (
-                        <div key={index} className={`story cursor-pointer rounded-md flex items-center justify-center flex-col`} onClick={() => handleCardClick(index)}>
-                            <img className='max-w-[225px] m-auto' src={Bottle} />
+                        <div key={index} className={`story cursor-pointer rounded-md `} onClick={() => handleCardClick(index)}>
+                            <div className='relative max-w-[225px] m-auto'>
+                                <img className='max-w-[225px] m-auto' src={Bottle2} />
+                                <img className={`absolute max-w-[225px] top-0 left-0 right-0 mx-auto w-max filter-${story.color}`} src={Ribbon} />
+                            </div>
+
                             <p className='text-m-brown text-center mt-3'><strong>{story.title}</strong></p>
                             <div className='flex gap-y-2 gap-x-4 flex-wrap mt-3'>
                                 {story.tags.map((tag) => (

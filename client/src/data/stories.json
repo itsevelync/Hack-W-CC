@@ -1,78 +1,101 @@
 [
   {
-    "title": "Story Title Here",
-    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "title": "Feeling Overwhelmed and Exhausted",
+    "content": "The weight of everything is starting to get to me. I’ve been working non-stop, trying to keep everything together, but it’s all just too much. I feel like I’m drowning and I can’t breathe anymore. It’s like everything is collapsing in on itself.",
     "tags": [
       "Vent",
-      "Teen",
-      "Nostalgia"
-    ],
-    "color": "green"
-  },
-  {
-    "title": "Story Title Here",
-    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget felis eget nunc lobortis mattis aliquam. Ut tristique et egestas quis.",
-    "tags": [
-      "Rant",
-      "Romance",
-      "Thriller"
-    ],
-    "color": "green"
-  },
-  {
-    "title": "Story Title Here",
-    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur aliquet quam id dui posuere blandit. Nulla porttitor accumsan tincidunt.",
-    "tags": [
-      "Happy",
-      "Slice of Life",
-      "Canada"
-    ],
-    "color": "green"
-  },
-  {
-    "title": "Story Title Here",
-    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.",
-    "tags": [
-      "United States",
-      "Female",
-      "Sad"
-    ],
-    "color": "green"
-  },
-  {
-    "title": "This is my story title",
-    "content": "this is my story content",
-    "tags": [
-      "rant"
+      "Overwhelmed",
+      "Mental Health"
     ],
     "color": "red"
   },
   {
-    "title": "This is my blue story",
-    "content": "i was so blue yesterday",
-    "tags": [],
+    "title": "Finally Moving On",
+    "content": "It’s been a long journey, but I’m finally able to let go of the past. I spent so much time holding on to memories and regrets, but I realized I can’t change what happened. What matters now is moving forward, growing, and finding peace.",
+    "tags": [
+      "Growth",
+      "Positive",
+      "Healing"
+    ],
+    "color": "orange"
+  },
+  {
+    "title": "A Glimpse of Happiness",
+    "content": "Today, I woke up with a sense of peace that I haven’t felt in a while. It’s not much, but it’s enough. I’m learning to take things one day at a time and appreciate the little things. It’s a start, and that’s something to celebrate.",
+    "tags": [
+      "Happy",
+      "Mindful",
+      "Personal Growth"
+    ],
+    "color": "yellow"
+  },
+  {
+    "title": "Struggling to Find Balance",
+    "content": "Work, family, personal life – it all feels like too much sometimes. I’m constantly juggling, but no matter how hard I try, something always seems to slip through the cracks. I just need to find a way to regain control without burning out.",
+    "tags": [
+      "Sad",
+      "Work Stress",
+      "Mental Health"
+    ],
+    "color": "green"
+  },
+  {
+    "title": "The Weight of the World",
+    "content": "Sometimes it feels like the world is on my shoulders. I have so many responsibilities, and it's hard to know where to start. I’m trying to stay positive, but it feels like I’m being crushed under the pressure.",
+    "tags": [
+      "Rant",
+      "Frustration",
+      "Stress"
+    ],
     "color": "blue"
   },
   {
-    "title": "asdasd",
-    "content": "asdasdasd",
-    "tags": [],
-    "color": "red"
-  },
-  {
-    "title": "sefef",
-    "content": "sdfsdf",
+    "title": "Blue Day, Bright Tomorrow",
+    "content": "I’ve been feeling pretty low lately, like everything is a bit too much to handle. But today, I’m trying to focus on the small things that make me happy. It’s hard, but I know I have to keep trying, because better days are ahead.",
     "tags": [
-      "sdfsd"
+      "Mindful",
+      "Sad",
+      "Hope"
     ],
-    "color": ""
+    "color": "blue"
   },
   {
-    "title": "ascas",
-    "content": "asdasd",
+    "title": "Finding Joy in the Chaos",
+    "content": "Life has been pretty chaotic lately, but I’m learning to find little moments of joy in the madness. Whether it’s a good cup of coffee or a quiet evening to myself, I’m holding on to those moments and using them to fuel me through the storm.",
     "tags": [
-      "asd",
-      "asd"
+      "Positive",
+      "Mindful",
+      "Resilience"
+    ],
+    "color": "purple"
+  },
+  {
+    "title": "Unexpected Kindness",
+    "content": "I had the most amazing encounter today. A stranger went out of their way to help me with something I didn’t even ask for. It reminded me that there’s still goodness in the world, and sometimes it comes from the most unexpected places.",
+    "tags": [
+      "Positive",
+      "Kindness",
+      "Hope"
+    ],
+    "color": "pink"
+  },
+  {
+    "title": "Stuck in a Rut",
+    "content": "I feel like I’m stuck in the same place. Every day feels like the last, and I can’t seem to break free. I want to make a change, but I’m scared to take that first step. The fear of the unknown is paralyzing.",
+    "tags": [
+      "Rant",
+      "Stagnant",
+      "Fear"
+    ],
+    "color": "blue"
+  },
+  {
+    "title": "Frustrated Beyond Belief",
+    "content": "I am so angry right now. It feels like everything is going wrong, and no matter how hard I try, it just keeps getting worse. I’ve had to deal with disrespect, missed opportunities, and people not listening to me. I’ve tried staying calm, but it’s hard when it feels like the world is just pushing me around. I’m done being patient.",
+    "tags": [
+      "Angry",
+      "Frustration",
+      "Vent"
     ],
     "color": "red"
   }
