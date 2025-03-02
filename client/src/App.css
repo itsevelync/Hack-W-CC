@@ -68,3 +68,23 @@ body {
 .resources:hover {
     filter: brightness(150%)  saturate(350%) hue-rotate(-5deg);
 }
+
+@keyframes messageSent {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+.message-sent {
+    animation: messageSent 2s ease-in-out forwards;
+}
