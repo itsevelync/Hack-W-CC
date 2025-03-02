@@ -25,7 +25,7 @@ function Navbar(props) {
                     About Us
                 </Link>
                 {
-                    props.page != "home" 
+                    props.page != "home" && props.page != "about" 
                     ?
                     (<Link to="/" className="flex content-center justify-center h-min cursor-pointer">
                         <h1 className="text-2xl">- MESSAGE IN A BOTTLE -</h1>
