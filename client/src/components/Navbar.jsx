@@ -8,7 +8,7 @@ function Navbar() {
                 <h1>Unspoken</h1>
                 <div className="flex gap-4">
                     <Link to="/">Home</Link>
-                    <Link to="/">About</Link>
+                    <Link to="/about">About</Link>
                     <Link to="/submit">Submit</Link>
                 </div>
             </div>
