@@ -2,12 +2,14 @@ import Bottle from '../assets/Bottle.png';
 
 function MessageSent() {
     return (
-        <div className='flex flex-col m-8 relative items-center bg-m-beige w-full h-full message-sent' style={{ 
-            animation: 'messageSent 3s ease-in-out forwards', 
+        <div className='fixed inset-0 flex flex-col justify-center items-center w-screen h-screen message-sent' style={{ 
+            // animation: 'messageSent 3s ease-in-out forwards', 
             opacity: 1
         }}>
-            <img src={Bottle} width='300' className=''></img>
-            <text className='py-4'>Bottle tossed in the ocean!</text>
+            <div className="absolute top-0 left-0 w-full h-full bg-m-tan opacity-100 z-50">
+            </div>
+            <img src={Bottle} width='300' className='z-50'></img>
+            <p className='py-4 z-50'>Bottle tossed in the ocean!</p>
         </div>
     )
 }
