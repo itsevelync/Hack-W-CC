@@ -98,5 +98,13 @@
       "Vent"
     ],
     "color": "red"
+  },
+  {
+    "title": "test",
+    "content": "story",
+    "tags": [
+      "USA"
+    ],
+    "color": "red"
   }
 ]
