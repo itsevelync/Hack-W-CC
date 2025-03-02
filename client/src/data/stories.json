@@ -1,19 +1,79 @@
 [
-    {
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "tags": ["Vent", "Teen", "Nostalgia"]
-    },
-    {
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget felis eget nunc lobortis mattis aliquam. Ut tristique et egestas quis.",
-      "tags": ["Rant", "Romance", "Thriller"]
-    },
-    {
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur aliquet quam id dui posuere blandit. Nulla porttitor accumsan tincidunt.",
-      "tags": ["Happy", "Slice of Life", "Canada"]
-    },
-    {
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.",
-      "tags": ["United States", "Female", "Sad"]
-    }
-  ]
-  
+  {
+    "title": "Story Title Here",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "tags": [
+      "Vent",
+      "Teen",
+      "Nostalgia"
+    ],
+    "color": "green"
+  },
+  {
+    "title": "Story Title Here",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget felis eget nunc lobortis mattis aliquam. Ut tristique et egestas quis.",
+    "tags": [
+      "Rant",
+      "Romance",
+      "Thriller"
+    ],
+    "color": "green"
+  },
+  {
+    "title": "Story Title Here",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur aliquet quam id dui posuere blandit. Nulla porttitor accumsan tincidunt.",
+    "tags": [
+      "Happy",
+      "Slice of Life",
+      "Canada"
+    ],
+    "color": "green"
+  },
+  {
+    "title": "Story Title Here",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.",
+    "tags": [
+      "United States",
+      "Female",
+      "Sad"
+    ],
+    "color": "green"
+  },
+  {
+    "title": "This is my story title",
+    "content": "this is my story content",
+    "tags": [
+      "rant"
+    ],
+    "color": "red"
+  },
+  {
+    "title": "This is my blue story",
+    "content": "i was so blue yesterday",
+    "tags": [],
+    "color": "blue"
+  },
+  {
+    "title": "asdasd",
+    "content": "asdasdasd",
+    "tags": [],
+    "color": "red"
+  },
+  {
+    "title": "sefef",
+    "content": "sdfsdf",
+    "tags": [
+      "sdfsd"
+    ],
+    "color": ""
+  },
+  {
+    "title": "ascas",
+    "content": "asdasd",
+    "tags": [
+      "asd",
+      "asd"
+    ],
+    "color": "red"
+  }
+]
