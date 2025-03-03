@@ -152,7 +152,7 @@ function Submit() {
                                 <br />
                                 <em className='text-sm'>Use the 'Enter' key to add a tag.</em></label><br />
                             <input
-                                className="border w-full border-gray-400 rounded-md p-2 w-[50%] col-start-2"
+                                className="border w-full border-gray-400 rounded-md p-2 col-start-2"
                                 type="text"
                                 id="tags"
                                 name="tags"
